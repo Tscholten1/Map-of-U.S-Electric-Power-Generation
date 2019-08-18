@@ -50,7 +50,24 @@
             color: #001323;
         }
 
+        var Legend=L.Control.extend( {
+            options: {
+                position: 'bottomright'
+            }
+            ,
+
+            onAdd: function (map) {
+                var legend=L.DomUtil.create('div', 'map-legend', L.DomUtil.get('map')); // here we can fill the legend with colors, strings and whatever
+                return legend;
+            }
+        }
+
+        );
+
+        map.addControl(new Legend());
+
     </style>
+
 </head>
 
 <body>
@@ -76,8 +93,6 @@
                 <li>When the user clicks on the map once, the map display will change to only show plants within 500 km of the click event.</li>
                 <li>After the user clicks on the map to filter by distance and then clicks on any power plant currently visible, a popup will show specific information about the plant. this information should include the plant's name, its fuel source, and the distance from the plant to the click point.</li>
             </ul>
-
-
         </p>
     </footer>
 
